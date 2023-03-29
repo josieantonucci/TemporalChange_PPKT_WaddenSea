@@ -47,7 +47,7 @@ library("dplyr")
 ### Download 
 setwd("~/Desktop/Job at AWI_HIFMB/nlwkn/my data/Interreg_Josie/InterReg-project/Manuscript/First manuscript_Temporal change")
 
-# data ----------------------
+# Data ----------------------
 # Station Map ----------------------
 # Standing Diversity ----------------------
   #S
