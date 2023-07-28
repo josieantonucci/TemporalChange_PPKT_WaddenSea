@@ -42,7 +42,6 @@ library("dplyr")
 # Set up the Working Directory
 setwd("~.../TemporalChange_PPKT_WaddenSea")
 
-setwd("~/Desktop/Job at AWI_HIFMB/nlwkn/my data/Interreg_Josie/InterReg-project/Manuscript/First manuscript_Temporal change/Repository_Git_TeporalChange/TemporalChange_PPKT_WaddenSea/Data")
 # Data ----------------------
 #download phytoplankton data for the Wadden Sea
 
