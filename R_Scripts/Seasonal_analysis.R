@@ -67,8 +67,7 @@ unique(PPKT_WS$StationID)
 # Sy = for each species, take mean biomass per year and calculate S then
 
 ### 1.1.1 Calculate the mean biomass per species, per year -----
-# PPKT_WS.median.annual<-ddply(PPKT_WS,.(Country, StationID, Year, Species), 
-#                              colwise(mean,  .(abundance_l)), na.rm=T)
+
 ###Seasonal
 names(PPKT_WS)
 str(PPKT_WS)
@@ -131,34 +130,6 @@ data_1$median.Sy<-specnumber(data_1[,5:lastspec2])
 
 ### 1.1.5 Select columns -----
 data_1.seasonal<-data_1[,c("Country","StationID","Year","Season","median.Sy","median.ENSy")]
-
-### 1.1.6 Statistical analysis ----- still wrong -------
-#### a) General slope ----
-#In order to test whether the change in median.Sy over years is significant within each season, you can include an interaction term between "Season" and "Year" in the model. However, to examine the significance of the change within each season, you need to include season-specific fixed effects in the model as well.
-#S:
-#model formula to test the change in median.Sy over years within each season
-# Convert "Year" to a factor and include "Autumn" in the levels
-#data_1.seasonal$Year <- factor(data_1.seasonal$Year, levels = unique(data_1.seasonal$Year))
-# Fit the linear mixed-effects model with the interaction term and season-specific fixed effects
-# MELM.Sy_1 <- lmer(median.Sy ~ Season * Year + (1|StationID) + (0 + Year | Season), data = data_1.seasonal)
-# #or
-# MELM.Sy_1 <-lmer(median.Sy ~ Year + (1|StationID) + (0 + Year | Season), data = data_1.seasonal)
-# summary(MELM.Sy_1)
-# tab_model(MELM.Sy_1) 
-# fit.MELM.Sy_1 = as.data.frame(Effect(c("Year"),MELM.Sy_1))
-# coef(summary(MELM.Sy_1))
-# 
-# #ENS
-# MELM.ENSy_1 <- lmer(median.ENSy ~ Season * Year + (1|StationID) + (0 + Year | Season), data = data_1.seasonal)
-# summary(MELM.ENSy_1)
-# tab_model(MELM.ENSy_1)
-# fit.MELM.ENSy_1 = as.data.frame(Effect(c("Year"),MELM.ENSy_1))
-# coef(summary(MELM.ENSy_1))
-# 
-# tab_model(MELM.Sy_1, MELM.ENSy_1) 
-
-
-#### b) Separate models per Country -----
 
 ### Statistical analysis: ----------
 # # Fit the linear mixed-effects model
